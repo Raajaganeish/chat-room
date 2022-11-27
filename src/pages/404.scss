@@ -1,0 +1,29 @@
+$bg-color: #002855;
+$place-holder-color: #4d6988;
+$shadow-color: #eef7fe;
+$bg-light: #64b5f6;
+
+.errorPageContainer {
+    background-color: $bg-color;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorContent {
+    width: 60%;
+    background-color: #e6eaee;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: $shadow-color 0px 1px 4px;
+    img {
+        width: 250px;
+        height: 250px;
+    }
+    p {
+        color: $bg-light;
+    }
+}

@@ -1,0 +1,235 @@
+$bg-color: #002855;
+$place-holder-color: #4d6988;
+$shadow-color: #eef7fe;
+$bg-light: #c1e1fb;
+$container-bg-color: #d9edfd;
+$segament-color: #99a9bb;
+
+@mixin tablet {
+    @media screen and (max-width: 980px) {
+        @content;
+    }
+}
+
+.Home {
+    background-color: $bg-color;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        background-color: $container-bg-color;
+        width: 70%;
+        height: 65%;
+        border-radius: 10px;
+        border: 1px black solid;
+        overflow: hidden;
+        display: flex;
+
+        .sidebarContainer {
+            flex: 1;
+            border-right: 1px solid black;
+        }
+
+        .chatContainer {
+            flex: 3;
+
+            .chatInfo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 50px;
+                padding: 10px;
+                background-color: $container-bg-color;
+
+                span {
+                    font-weight: bold;
+                    font-size: 24px;
+                }
+
+                .chatIcons {
+                    display: flex;
+                    gap: 10px;
+
+                    svg {
+                        width: 25px;
+                        height: 25px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .messageContainer {
+                background-color: #e5f3f7;
+                height: calc(100% - 140px);
+                overflow-y: auto;
+                padding: 0 10px;
+                .message {
+                    display: flex;
+                    gap: 15px;
+                    .messageInfo {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        align-items: center;
+                        padding: 10px;
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .messageContent {
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        p {
+                            padding: 10px;
+                            background-color: white;
+                            border-radius: 0 10px 10px 10px;
+                            max-width: max-content;
+                        }
+
+                        img {
+                            width: 50%;
+                        }
+                    }
+
+                    &.owner {
+                        flex-direction: row-reverse;
+                        .messageContent {
+                            p {
+                                background-color: #b1b1dc;
+                                border-radius: 10px 10px 0 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .inputContainer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #c4cad0;
+                height: 50px;
+                padding: 10px;
+
+                input {
+                    border: none;
+                    outline: none;
+                    background-color: #c4cad0;
+                    line-height: 1rem;
+                    width: 100%;
+                    font-size: 18px;
+                    &::placeholder {
+                        color: black;
+                    }
+                }
+
+                .sendArea {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+
+                    svg,
+                    label {
+                        width: 25px;
+                        height: 25px;
+                        cursor: pointer;
+                    }
+
+                    button {
+                        border: none;
+                        padding: 10px;
+                        color: white;
+                        background-color: $bg-color;
+
+                        &:hover {
+                            background-color: $segament-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .navbarContainer {
+            background-color: $container-bg-color;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 50px;
+            padding: 10px;
+
+            .logo {
+                font-weight: bold;
+                @include tablet() {
+                    display: none;
+                }
+            }
+
+            .user {
+                display: flex;
+                gap: 10px;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+                border-radius: 50px;
+                object-fit: cover;
+            }
+
+            button {
+                background-color: $bg-color;
+                font-size: 10px;
+                cursor: pointer;
+                border: none;
+                color: $bg-light;
+            }
+        }
+
+        .searchContainer {
+            background-color: $segament-color;
+            border-bottom: 1px solid gray;
+
+            .searchForm {
+                padding: 10px;
+                border-bottom: 1px solid gray;
+                input {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    &::placeholder {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .userResult {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            cursor: pointer;
+            color: white;
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
+                border-radius: 50%;
+            }
+
+            &:hover {
+                background-color: $segament-color;
+                color: black;
+            }
+        }
+    }
+}
